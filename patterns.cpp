@@ -2,23 +2,18 @@
 using namespace std;
 
 int main(){
-      int n;
-     cout << "say a number: " << endl;
+     int n;
+     cout << " value of n: " << endl;
      cin >> n;
 
-      // for(int i = 0 ; i<n ; i++){
-      //       for(int j = 0 ; j<n ; j++){
-      //             cout<<"*";
-      //       }
-      //       cout<<endl;
-      // }
 
-       for(int i = 0 ; i<=n ; i++){
-            for(int j = 0 ; j<i ; j++){
-                  cout<<"*";
-            }
-            cout<<endl;
-      }
+      int sum = 0;
+      for(int i = 1 ; i <= n ; i++){
+            sum += i;
+     }
+      cout << "Sum of first " << n << " natural numbers is: " << sum << endl;
 
       return 0;
+
+     
 }
