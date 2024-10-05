@@ -22,6 +22,10 @@ int main()
       // output 0x61ff04  this is the memory address of pointer ptr and & operator is used to print this value
 
       // we can also dereference the pointer using * operator to access the value at that memory address
-      // cout << *ptr2 << endl;
+      int b = 60;
+      int* pointer = &b;
+
+      cout << "value at mem location " << pointer << " is " << *pointer << endl;
+      
       return 0;
 }
