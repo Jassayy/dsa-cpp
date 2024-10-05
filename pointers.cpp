@@ -2,21 +2,17 @@
 
 using namespace std;
 
-void changeA(int *ptr)
+void changeA(int &b) // alias .... using different name but pointing to same memory address
 {
-      *ptr = 20;
+      b = 20;
 }
 int main()
 {
-      // pass by reference
+      // pass by ref using alias
       int a = 10;
+      changeA(a);
 
-      cout << "a: " << a << endl;
-
-      // changeA(a);  this will not reflect in main function cuz it is pass by value..so use &a to pass mem address of int a
-
-      changeA(&a);
-      cout << "After pass by ref: a : " << a << endl;
+      cout << "a : " << a << endl;
 
       return 0;
 }
