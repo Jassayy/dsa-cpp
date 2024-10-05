@@ -4,10 +4,10 @@ using namespace std;
 
 int main()
 {
-      int a = 10;
-      int* ptr = &a;
-      int** dptr = &ptr;
-
-      cout << "double derefernce: " << **(dptr) << endl; //output should be 10
+      // int *ptr;
+      // or
+      int *ptr = NULL;
+      cout << "Null pointer: " << ptr; // garbage value
+      // we cant dereference the null pointer
       return 0;
 }
