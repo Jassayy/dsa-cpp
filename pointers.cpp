@@ -2,17 +2,11 @@
 
 using namespace std;
 
-void changeA(int &b) // alias .... using different name but pointing to same memory address
-{
-      b = 20;
-}
 int main()
 {
-      // pass by ref using alias
-      int a = 10;
-      changeA(a);
+      int *ptr2;            // 100
+      int *ptr1 = ptr2 + 2; // 108
 
-      cout << "a : " << a << endl;
-
+      cout << "Using SUBTRACT ARITHMETIC OPERATION ON POINTERS: " << ptr1 - ptr2 << endl; // output should be 2 ie 2 integers as 108 - 100 is 8 i.e 2 integers
       return 0;
 }
