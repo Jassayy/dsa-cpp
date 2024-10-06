@@ -8,7 +8,7 @@ int binarySearch(vector<int> arr, int target)
 
       while (st <= end)
       {
-            int mid = (st + end) / 2;
+            int mid = st + (end - st) / 2; // optimization in code which is equal to st + end /2 only but by this the integer value will not overflow when any st or end is INT_MAX
 
             if (target > arr[mid])
             {
@@ -27,13 +27,12 @@ int binarySearch(vector<int> arr, int target)
 }
 int main()
 {
-      vector<int> arr = {-1, 0, 3, 4, 5, 9, 12}; //odd vector
+      vector<int> arr = {-1, 0, 3, 4, 5, 9, 12}; // odd vector
       int target = 12;
 
       cout << "element found at index: " << binarySearch(arr, target) << endl;
 
-
-      vector<int> arr2 = {0 , 3 , 5, 7 , 8 , 9}; //even vector
+      vector<int> arr2 = {0, 3, 5, 7, 8, 9}; // even vector
       int target2 = 7;
 
       cout << "element found at index: " << binarySearch(arr2, target2) << endl;
