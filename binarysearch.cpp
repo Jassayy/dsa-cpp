@@ -11,11 +11,11 @@ int binarySearch(vector<int> arr, int target, int st, int end)
 
             if (target > arr[mid])
             {
-                  return binarySearch(arr, target, mid + 1, end);
+                  return binarySearch(arr, target, mid + 1, end); //st updates to mid + 1 ; 
             }
             else if (target < arr[mid])
             {
-                  return binarySearch(arr, target, st, mid - 1);
+                  return binarySearch(arr, target, st, mid - 1); // end updates to mid-1;
             }
             else
             {
