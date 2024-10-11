@@ -10,7 +10,7 @@ vector<int> insertionSort(vector<int> arr, int n)
             int current = arr[i];
             int prev = i - 1;
 
-            while (prev >= 0 && arr[prev] > current)
+            while (prev >= 0 && arr[prev] > current) //comparison sign interchange krke descending order me sorting
             {
                   arr[prev + 1] = arr[prev];
                   prev--;
