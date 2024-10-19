@@ -2,26 +2,23 @@
 #include <list>
 #include<deque>
 #include<stack>
+#include<queue>
 
 using namespace std;
 
 int main()
 {
 
-     stack<int> s;
-     stack<int> s2;
+      queue<int> q;
 
-     s.push(10);
-     s.push(20);
-     s.push(30);
-   
-      
+      q.push(1);
+      q.push(2);
+      q.push(3);
 
-      s2.swap(s);
-      cout << s2.size() << endl;
-      cout << s.size() << endl;
-   
-
-    cout << s.top() << endl;
-      return 0;
+      while(!q.empty()){
+            cout << q.front() << " ";
+            q.pop();
+      }
+      cout << endl;
+   return 0;
 }
