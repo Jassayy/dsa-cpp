@@ -1,21 +1,27 @@
 #include <iostream>
 #include <list>
 #include<deque>
+#include<stack>
 
 using namespace std;
 
 int main()
 {
 
-      deque<int> d ; 
+     stack<int> s;
+     stack<int> s2;
 
-      d.push_back(10);
-      d.push_front(23);
+     s.push(10);
+     s.push(20);
+     s.push(30);
+   
       
-      for (int val : d)
-      {
-            cout << val << " ";
-      }
-      cout << endl;
+
+      s2.swap(s);
+      cout << s2.size() << endl;
+      cout << s.size() << endl;
+   
+
+    cout << s.top() << endl;
       return 0;
 }
