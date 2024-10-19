@@ -7,12 +7,12 @@ using namespace std;
 int main()
 {
 
-      list<int> l;
+      deque<int> d ; 
 
-      l.push_back(10);
-      l.push_front(50);
-
-      for (int val : l)
+      d.push_back(10);
+      d.push_front(23);
+      
+      for (int val : d)
       {
             cout << val << " ";
       }
