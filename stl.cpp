@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-
+//priority queue acts in the same way but the highest element is always on the top of the queue
       queue<int> q;
 
       q.push(1);
