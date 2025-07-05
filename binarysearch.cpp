@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int binarySearch(vector<int> arr, int target, int st, int end)
+int binarySearch(vector<int> &arr, int target, int st, int end)
 {
 
       while (st <= end)

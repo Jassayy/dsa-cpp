@@ -31,7 +31,7 @@ using namespace std;
 
 //binary search using recursion
 //time complexity - O(logn) and space complexity is also O(n)
-int binarySearch(vector<int> arr , int target , int st , int end){
+int binarySearch(vector<int> &arr , int target , int st , int end){
        
        
        while(st <= end){
