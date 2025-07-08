@@ -37,7 +37,7 @@ int main(){
                     cout << val << " ";
           }
 
-          cout << endl;
+          cout <<  endl;
 
           return 0;
 }
@@ -70,4 +70,7 @@ left half [2,1] => pivot => 1
 for right half pivot => 4 => [4,5,6]=> then same happens with [5,6] with 6 = pivot
 
 backtrack and put array together
+
+tc => O(nlogn) => in worst case O(n*n) => pivot => array's smallest/largest element
+sc => O(n)
 */
