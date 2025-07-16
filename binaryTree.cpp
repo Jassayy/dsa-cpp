@@ -129,6 +129,46 @@ void levelorder(Node *root)
               }
        }
 }
+
+int height(Node *root)
+{
+       if (root == nullptr)
+       {
+              return 0;
+       }
+
+       int leftHt = height(root->left);
+       int rightht = height(root->right);
+
+       return (max(leftHt, rightht)) + 1;
+}
+
+int count(Node *root)
+{
+       if (root == nullptr)
+       {
+              return 0;
+       }
+       int leftCount = count(root->left);
+       int rightCount = count(root->right);
+
+       return (leftCount + rightCount) + 1;
+}
+
+// sum
+int sum(Node *root)
+{
+       if (root == nullptr)
+       {
+              return 0;
+       }
+
+       int leftSum = sum(root->left);
+       int rightSum = sum(root->right);
+
+       return leftSum + rightSum + root->data;
+}
+
 int main()
 {
 
@@ -148,5 +188,12 @@ int main()
        cout << endl;
        levelorder(root);
        cout << endl;
+       cout << "Height : " << height(root) << " ";
+       cout << endl;
+       cout << "Number of nodes: " << count(root) << " ";
+       cout << endl;
+       cout << "Sum of nodes: " << sum(root) << " ";
+       cout << endl;
+
        return 0;
 }
