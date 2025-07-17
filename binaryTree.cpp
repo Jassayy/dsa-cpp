@@ -207,6 +207,21 @@ void topView(Node *root)
        cout << endl;
 }
 
+void KthLevel(Node *root, int k)
+{
+       if(root == nullptr){
+              return;
+       }
+       if(k == 1){
+              cout << root->data << " ";
+              return;
+       }
+
+       KthLevel(root->left , k - 1);
+       KthLevel(root->right , k-1);
+       
+}
+
 int main()
 {
 
@@ -232,7 +247,8 @@ int main()
        // cout << endl;
        // cout << "Sum of nodes: " << sum(root) << " ";
        // cout << endl;
-       topView(root);
+       // topView(root);
+       KthLevel(root , 2);
 
        return 0;
 }
