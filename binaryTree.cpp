@@ -209,17 +209,30 @@ void topView(Node *root)
 
 void KthLevel(Node *root, int k)
 {
-       if(root == nullptr){
+       if (root == nullptr)
+       {
               return;
        }
-       if(k == 1){
+       if (k == 1)
+       {
               cout << root->data << " ";
               return;
        }
 
-       KthLevel(root->left , k - 1);
-       KthLevel(root->right , k-1);
-       
+       KthLevel(root->left, k - 1);
+       KthLevel(root->right, k - 1);
+}
+
+int sumTree(Node *root)
+{
+       if (root == nullptr)
+              return 0;
+
+       int leftsum = sumTree(root->left);
+       int rightsum = sumTree(root->right);
+       root->data += leftsum + rightsum;
+
+       return root->data;
 }
 
 int main()
@@ -248,7 +261,14 @@ int main()
        // cout << "Sum of nodes: " << sum(root) << " ";
        // cout << endl;
        // topView(root);
-       KthLevel(root , 2);
+       // KthLevel(root , 2);
+       cout << "Before conversion: ";
+       preOrder(root);
+       cout << endl;
+       sumTree(root);
+       cout << endl;
+       cout << "after conversion: ";
+       preOrder(root);
 
        return 0;
 }
