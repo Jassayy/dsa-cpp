@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <map>
 using namespace std;
 
 class Node
@@ -169,6 +170,43 @@ int sum(Node *root)
        return leftSum + rightSum + root->data;
 }
 
+// top view of binary tree
+void topView(Node *root)
+{
+       // level order traversal first
+       queue<pair<Node *, int>> q;
+       map<int, int> m;
+
+       q.push({root, 0});
+
+       while (!q.empty())
+       {
+              Node *curr = q.front().first;
+              int currHD = q.front().second;
+              q.pop();
+
+              if (m.find(currHD) == m.end())
+              {
+                     m[currHD] = curr->data;
+              }
+
+              if (curr->left != nullptr)
+              {
+                     q.push({curr->left, currHD - 1});
+              }
+              if (curr->right != nullptr)
+              {
+                     q.push({curr->right, currHD + 1});
+              }
+       }
+
+       for (auto it : m)
+       {
+              cout << it.second << " ";
+       }
+       cout << endl;
+}
+
 int main()
 {
 
@@ -180,20 +218,21 @@ int main()
        // cout << root->left->data << endl;
        // cout << root->right->data << endl;
 
-       preOrder(root);
-       cout << endl;
-       inOrder(root);
-       cout << endl;
-       postorder(root);
-       cout << endl;
-       levelorder(root);
-       cout << endl;
-       cout << "Height : " << height(root) << " ";
-       cout << endl;
-       cout << "Number of nodes: " << count(root) << " ";
-       cout << endl;
-       cout << "Sum of nodes: " << sum(root) << " ";
-       cout << endl;
+       // preOrder(root);
+       // cout << endl;
+       // inOrder(root);
+       // cout << endl;
+       // postorder(root);
+       // cout << endl;
+       // levelorder(root);
+       // cout << endl;
+       // cout << "Height : " << height(root) << " ";
+       // cout << endl;
+       // cout << "Number of nodes: " << count(root) << " ";
+       // cout << endl;
+       // cout << "Sum of nodes: " << sum(root) << " ";
+       // cout << endl;
+       topView(root);
 
        return 0;
 }
