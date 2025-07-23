@@ -1,76 +1,64 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// adjacency matrix
-// int main()
-// {
-//        ios::sync_with_stdio(false);
-//        cin.tie(nullptr);
-
-//        // n -> number of vertices , m -> no of edges
-//        int n, m;
-//        cin >> n >> m;
-
-//        int adj[n + 1][n + 1] = {0};
-
-//        // loop around m lines below n and m for inputs
-
-//        for (int i = 0; i < m; i++)
-//        {
-//               int u, v;
-//               cin >> u >> v;
-//               adj[u][v] = 1;
-//               adj[v][u] = 1;
-//        }
-
-//        for (int i = 1; i <= n; i++)
-//        {
-//               for (int j = 1; j <= n; j++)
-//               {
-//                      cout << adj[i][j] << " ";
-//               }
-
-//               cout << endl;
-//        }
-
-//        return 0;
-// }
-
-// adjacency list way
-int main()
+class Edge
 {
 
+public:
+       int src, des, wt;
+
+       Edge(int src, int des, int wt)
+       {
+              this->src = src;
+              this->des = des;
+              this->wt = wt;
+       }
+};
+
+void createGraph(vector<vector<Edge>> &graph)
+{
+       graph[0].push_back(Edge(0, 2, 1));
+       graph[1].push_back(Edge(1, 2, 4));
+       graph[1].push_back(Edge(1, 3, 4));
+       graph[2].push_back(Edge(2, 0, 6));
+       graph[2].push_back(Edge(2, 1, 3));
+       graph[2].push_back(Edge(2, 3, 6));
+       graph[3].push_back(Edge(3, 1, 9));
+       graph[3].push_back(Edge(3, 2, 2));
+}
+
+int main()
+{
        ios::sync_with_stdio(false);
        cin.tie(nullptr);
 
-       int n, m;
-       cin >> n >> m;
+       int v = 4; // no. of vertices / nodes
 
-       // Adjacency list of size n
-       vector<vector<int>> adj(n);
+       vector<vector<Edge>> graph(v);
 
-       for (int i = 0; i < m; i++)
+       createGraph(graph);
+
+       // print all
+       // for (int i = 0; i < v; i++)
+       // {
+       //        cout << "Node" << i << "connects to : ";
+
+       //        for (Edge e : graph[i])
+       //        {
+       //               cout << e.des << " ";
+       //        }
+
+       //        cout << endl;
+       // }
+
+       // print neighbours of 2
+
+       for (Edge e : graph[2])
        {
-              int u, v;
-              cin >> u >> v;
-              u--;
-              v--; // only if input is 1-based. Remove this if input is 0-based
-
-              // Add edge to adjacency list (undirected)
-              adj[u].push_back(v);
-              adj[v].push_back(u); //only if its undirected graph
+              cout << e.des << " with wt: " << e.wt << endl;
        }
 
-       // Print the adjacency list
-       for (int i = 0; i < n; i++)
-       {
-              cout << "Node " << i << ": ";
-              for (int neighbor : adj[i])
-              {
-                     cout << neighbor << " ";
-              }
-              cout << '\n';
-       }
+       cout << endl;
 
        return 0;
 }
